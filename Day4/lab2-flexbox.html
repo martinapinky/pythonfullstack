@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Responsive</title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        height: 100vh;
+        background: linear-gradient(to right, rgb(183, 0, 224), rgb(0, 183, 255));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Roboto", serif;
+    }
+    .main {
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        width: 30%;
+        height: 40%;
+    }
+    .chat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(48, 220, 255);
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        flex: 1;
+        color: white;
+    }
+    .chat p {
+        font-size: small;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        /* border-radius: 5px; */
+    }
+    .contact h3 {
+        margin: 10px 15px;
+    }
+    input[type="text"] {
+        margin: 5px 15px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        border-radius: 2px;
+        font-size: 0.7em;
+    }
+    @media (max-width: 768px) {
+        .main {
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+        .chat {
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 5px;
+            padding: 10px;
+        }
+        .chat p {
+            font-size: x-small;
+        }
+        .contact {
+            padding-bottom: 10px;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="chat">
+                <h2>Let's Chat</h2>
+                <p>Whether you have a question, want to start a project, or simply want to connect, feel free to send me a message in the contact form.</p>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <input type="text" placeholder="Name*">
+                <input type="text" placeholder="Email*">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

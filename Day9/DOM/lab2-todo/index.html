@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<title>To-Do List with Due Dates</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+     <style>
+         body {
+             font-family: 'Poppins', sans-serif;
+             background: linear-gradient(to right, #6a11cb, #2575fc);
+             color: #fff;
+             margin: 0;
+             padding: 0;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+         }
+     
+        .container {
+             background: #fff;
+             border-radius: 15px;
+             padding: 30px 20px;
+             max-width: 500px;
+             width: 90%;
+             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+         }
+    
+         h1 {
+             text-align: center;
+             font-size: 2rem;
+             margin-bottom: 20px;
+             color: #6a11cb;
+         }
+    
+         .addtask input, .addtask button {
+             padding: 12px;
+             margin-bottom: 10px;
+             font-size: 1rem;
+             border: 2px solid #ddd;
+             border-radius: 10px;
+         }
+    
+         ul {
+             list-style: none;
+             padding: 0;
+         }
+    
+         li {
+             background: #f9f9f9;
+             padding: 15px;
+             margin-bottom: 10px;
+             border-radius: 10px;
+             color: #6a11cb;
+         }
+
+         .completed {
+            text-decoration: line-through;
+            font-style: italic;
+            color: grey;
+         }
+     </style>
+    
+ </head>
+ <body>
+ 	<div class="container">
+     	<h1>To-Do List</h1>
+
+     	<div class="addtask">
+         	<input id="taskInput" type="text" placeholder="Add a new task...">
+         	<input id="dueDateInput" type="datetime-local">
+         	<button id="addTaskBtn">Add Task</button>
+     	</div>
+
+     	<ul id="taskList"></ul>
+     	<button id="clearAllBtn">Clear All Tasks</button>
+ 	</div>
+     <script>
+        const taskInput = document.getElementById('taskInput');
+        const dueDateInput = document.getElementById('dueDateInput');
+        const addTaskBtn = document.getElementById('addTaskBtn');
+        const taskList = document.getElementById('taskList');
+   
+        // Add task functionality
+        addTaskBtn.addEventListener('click', () => {
+            const taskName = taskInput.value.trim();
+            const dueDate = dueDateInput.value;
+   
+            if (!taskName || !dueDate) {
+                alert('Please enter both a task and a due date!');
+                return;
+            }
+   
+            const taskItem = document.createElement('li');
+            taskItem.innerHTML = `
+                <span>${taskName}</span>
+                <span>${new Date(dueDate).toLocaleString()}</span>
+                <button class="complete">Complete</button>
+                <button class="delete">Delete</button>
+            `;
+            taskList.appendChild(taskItem);
+
+            // Mark as complete
+            taskItem.querySelector('.complete').addEventListener('click', () => {
+                taskItem.querySelector('span').classList.toggle('completed');
+            });
+
+            // Delete task
+            taskItem.querySelector('.delete').addEventListener('click', () => {
+                taskItem.remove();
+            });
+
+            taskList.appendChild(taskItem);
+            taskInput.value = '';
+            dueDateInput.value = '';
+
+        });
+
+        function checkOverdue() {
+            const tasks = taskList.querySelectorAll('li');
+            tasks.forEach(task => {
+                const dueDateText = task.querySelector('span:nth-child(2)').textContent;
+                const dueDate = new Date(dueDateText);
+                const currentDate = new Date();
+
+                if (currentDate > dueDate) {
+                    task.style.color = 'red';
+                }
+            });
+        }
+        setInterval(checkOverdue, 3000); // Check every minute
+
+        // setInterval(displayHello, 1000);
+
+        // function displayHello() {
+        //     document.getElementById("taskList").innerHTML += "Hello";
+        // }
+
+        const clearAllBtn = document.getElementById('clearAllBtn');
+        clearAllBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete all tasks?')) {
+                taskList.innerHTML = '';
+            }
+        });
+
+
+    </script>
+ </body>
+ </html>

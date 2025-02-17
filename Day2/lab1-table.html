@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            border: none;
+            /* padding: 50px; */
+            overflow-x: auto;
+        }
+        th, td {
+            padding: 5px;
+            height: 50px;
+            vertical-align: top;
+        }
+        tbody td {
+            border: 1px solid orange;
+        }
+        .orange-border {
+            border: 1px solid orange;
+        }
+        /* Odd */
+        thead tr:nth-child(2n+1) {
+            font-style: italic;
+            font-weight: 300;
+        }
+        /* Even */
+        thead tr:nth-child(2n) {
+            background-color: darkblue;
+            color: white;
+        }
+        thead th:nth-child(2n) {
+            border: 1px solid orange;
+        }
+        tfoot {
+            background-color: lightgray;
+            font-weight: bold;
+        }
+        tfoot tr:nth-child(2n+1) {
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+        tfoot tr:nth-child(2n) {
+            font-style: italic;
+        }
+        #ball-bg {
+            border: none;
+            height: 100px;
+            background-color: white;
+            background-image: url("https://cdn.pixabay.com/photo/2013/07/12/13/21/baseball-146883_1280.png");
+            background-size: 100px;
+        }
+        .asterix-row {
+            font-style: italic;
+        }
+        .middle-column {
+            text-align: center;
+        }
+
+        /* First column */
+        td:nth-child(1) {
+            width: 50%;
+        }
+
+        /* Second column */
+        td:nth-child(2) {
+            width: 10%;
+        }
+
+        /* Third column */
+        td:nth-child(2) {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">All-time Home Run Records</th>
+            </tr>
+            <tr class="orange-border">
+                <th>Player</th>
+                <th>Home Runs</th>
+                <th>Team</th>
+            </tr>
+        </thead>
+        <tbody class="orange-border">
+            <tr class="asterix-row">
+                <td>Barry Bonds*</td>
+                <td class="middle-column">762</td>
+                <td>Giants</td>
+            </tr>
+            <tr>
+                <td>Hank Aaron</td>
+                <td class="middle-column">755</td>
+                <td>Braves</td>
+            </tr>
+            <tr>
+                <td>Babe Ruth</td>
+                <td class="middle-column">714</td>
+                <td>Yankees</td>
+            </tr>
+            <tr class="asterix-row">
+                <td>Alex Rodriquez*</td>
+                <td class="middle-column">696</td>
+                <td>Yankees</td>
+            </tr>
+            <tr>
+                <td>Albert Pujols</td>
+                <td class="middle-column">679</td>
+                <td>Dodgers</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="orange-border">
+                <td>Totals</td>
+                <td class="middle-column orange-border">3,606</td>
+                <td>N/A</td>
+            </tr>
+            <tr class="orange-border">
+                <td colspan="3">*Steroids Era</td>
+            </tr>
+            <tr id="ball-bg">
+                <td colspan="3">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

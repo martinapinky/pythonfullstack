@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Intro</title>
+</head>
+<body>
+    <div id="message">Hello, World</div>
+    <button id="changeBtn">Change the color</button>
+    <button id="changeBgColor">Change the background color</button>
+    <button onclick="document.body.style.backgroundColor='green'">Green Background</button>
+    <button id="eventHandler">Alert</button>
+    <div>
+        <button id="turnOnBtn">Turn on the light</button>
+        <img id="myImage" style="width: 200px; height: 200px; border-radius: 60px;" src="https://img.freepik.com/free-vector/energy-saving-lightbulb-isolated_1284-41849.jpg?t=st=1738048646~exp=1738052246~hmac=c859c5ded20e44ad91c348144793acaf4d71f4916c4f990d2d81f22e212c0d0b&w=740" >
+        <button id="turnOffBtn">Turn off the light</button>
+    </div>
+    <div>
+        <p id="dblClickPara">Double click</p>
+    </div>
+    <!-- Focus and blur event -->
+     <input type="text" id="focusInput" style="outline:none;" placeholder="Focus on me">
+    <script>
+        // Focus and Blur event
+        const input = document.getElementById('focusInput');
+        input.addEventListener('focus', () => {
+            input.style.border = '2px solid green';
+        });
+        input.addEventListener('blur', () => {
+            input.style.border = '1px solid gray';
+        });
+        const msg = document.getElementById('message');
+        msg.innerHTML = "The text has been changed";
+        const changeBgColor = document.getElementById('changeBgColor');
+        const changeBtn = document.getElementById('changeBtn');
+        const myImage = document.getElementById('myImage');
+        changeBtn.addEventListener('click', () => {
+            msg.style.color = "blue";
+            msg.innerHTML = "This is changed text";
+        });
+        // Event Listener
+        changeBgColor.addEventListener('click', () => {
+            document.body.style.backgroundColor = "pink";
+        });
+
+        // Event Handlers
+        document.getElementById('eventHandler').onclick = function() {
+            alert("Button clicked");
+        };
+        document.getElementById('turnOnBtn').onclick = function() {
+            myImage.src = "https://img.freepik.com/free-vector/realistic-lit-light-bulb-isolated_1284-41774.jpg?t=st=1738048472~exp=1738052072~hmac=52451269d9887a4f20355933020d2f48051d3d285a4065c3f3291baefe5a73f4&w=740";
+        };
+        document.getElementById('turnOffBtn').onclick = function() {
+            myImage.src = "https://img.freepik.com/free-vector/energy-saving-lightbulb-isolated_1284-41849.jpg?t=st=1738048646~exp=1738052246~hmac=c859c5ded20e44ad91c348144793acaf4d71f4916c4f990d2d81f22e212c0d0b&w=740";
+        };
+
+        const paragraph = document.getElementById('dblClickPara');
+        paragraph.addEventListener('dblclick', () => {
+            paragraph.style.color = 'green';
+        });
+    </script>
+</body>
+</html>

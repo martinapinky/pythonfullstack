@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+        .container {
+            background-color: gray;
+            height: 100vh;
+            display: grid;
+            font-family: "Lato", serif;
+            grid-template-rows: 133px 1fr 50px;
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-areas: 
+            "header header header"
+            "main1 main2 main3"
+            "footer footer footer";
+            row-gap: 25px;
+            column-gap: 25px;
+        }
+        .header {
+            grid-area: header;
+            color: white;
+            text-align: center;
+            background-color: rgb(255, 202, 104);;
+        }
+        .main1 {
+            grid-area: main1;
+            background-color: white;
+            margin-left: 20px;
+            padding: 10px;
+        }
+        .main2 {
+            grid-area: main2;
+            background-color: white;
+            padding: 10px;
+        }
+        .main3 {
+            grid-area: main3;
+            background-color: white;
+            margin-right: 20px;
+            padding: 10px;
+        }
+        .footer {
+            grid-area: footer;
+            text-align: center;
+            color: white;
+            font-size: small;
+            background-color: rgb(255, 202, 104);;
+        }
+        .footer :nth-child(2) {
+            padding: 10px;
+        }
+        #navbar {
+            background-color: lightgray;
+        }
+        #navbar ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            padding: 5px 10px;
+            column-gap: 10px;
+        }
+        #navbar li {
+            border: 1px solid rgb(83, 83, 83);
+            background-color: white;
+            color: rgb(255, 202, 104);
+            padding: 10px;
+        }
+        #navbar li:hover {
+            cursor: pointer;
+        }
+        .main1 img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .main2 img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .main3 img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        p {
+            font-size: large;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        .line {
+            background-color: black;
+            height: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Power Grid Homepage</h1>
+            <div id="navbar">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Blog</li>
+                    <li>Careers</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main1">
+            <img src="https://cdn.pixabay.com/photo/2020/09/11/13/35/floral-painting-5563198_1280.jpg">
+            <p>This is some awesome content that is on the page</p>
+            <button>Go Somewhere</button>
+        </div>
+        <div class="main2">
+            <img src="https://cdn.pixabay.com/photo/2020/12/30/14/26/impala-5873636_1280.jpg">
+            <p>This is more content than the previous box, but less than the next.</p>
+            <button>Click Me</button>
+        </div>
+        <div class="main3">
+            <img src="https://cdn.pixabay.com/photo/2013/10/20/17/11/goat-in-austria-198455_1280.jpg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nisi natus totam distinctio illum ut, modi delectus eaque, porro beatae, ipsum quo quas odit doloremque aperiam eius assumenda hic sunt.</p>
+            <button>Do Something</button>
+        </div>
+        <div class="footer">
+            <div class="line"></div>
+            <div>Copyright &copy; 2025</div>
+        </div>
+    </div>
+</body>
+</html>

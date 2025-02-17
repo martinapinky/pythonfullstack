@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users List - User Management Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            background-color: #101211;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #E0E2E1;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        input {
+            background-color: #101211;
+            box-shadow: inset 0.3rem 0.3rem 0.6rem rgb(4, 4, 4), inset -.2rem -.2rem .5rem #2f3532;
+            padding: 10px 5px;
+            border: none;
+            border-radius: 10px;
+            color: wheat;
+            outline: none;
+        }
+        table {
+            border-spacing: 0;
+            border: 1px solid rgb(60, 60, 60);
+            border-radius: 10px;
+        }
+        th {
+            padding: 10px;
+            border: 1px solid rgb(60, 60, 60);;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid rgb(60, 60, 60);;
+        }
+        tr:first-child th:first-child {
+            border-top-left-radius: 10px;
+        }
+        tr:first-child th:last-child {
+            border-top-right-radius: 10px;
+        }
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+        a {
+            color: gray;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            margin-top: 15px;
+            margin-right: 5px;
+            padding: 5px;
+            color: white;
+            background-color: #101211;
+            box-shadow: 0.3rem 0.3rem 0.6rem rgb(4, 4, 4), -.2rem -.2rem .5rem #2f3532;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Users List</h1>
+        
+        <div class="form-container">
+            <div>
+                <input type="text" id="user-name" placeholder="Name" required />
+                <input type="email" id="user-email" placeholder="Email" required />
+                <input type="text" id="user-phone" placeholder="Phone" required />
+                <input type="url" id="user-website" placeholder="Website" required />
+            </div>
+            <button onclick="addOrUpdateUser()">Add/Update User</button>
+        </div>
+      
+        <table id="users-list" class="users-list">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    <script>
+        let editingUserId = null;
+
+        // Function to Fetch Users
+        async function fetchUsers() {
+            const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+            const response = await fetch(apiUrl);
+            
+            if (response.ok) {
+                const users = await response.json();
+                displayUsers(users);
+            } else {
+                console.error('Error fetching users');
+                document.getElementById('users-list').innerHTML = 'Failed to load users.';
+            }
+        }
+
+        fetchUsers();
+
+        // This function renders the fetched users in the table.
+        function displayUsers(users) {
+            const usersList = document.getElementById('users-list').getElementsByTagName('tbody')[0];
+            usersList.innerHTML = ''; 
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.setAttribute('data-id', user.id);
+                row.innerHTML = `
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
+                <td><a href="http://${user.website}" target="_blank">${user.website}</a></td>
+                <td class="action-btns">
+                    <button class="edit-btn" onclick="editUser(${user.id}, '${user.name}', '${user.email}', '${user.phone}', '${user.website}')">Edit</button>
+                    <button class="delete-btn" onclick="deleteUser(${user.id})">Delete</button>
+                </td>
+                `;
+                usersList.appendChild(row);
+            });
+        }
+
+        // Function to Add or Update User
+        function addOrUpdateUser() {
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            const phone = document.getElementById('user-phone').value;
+            const website = document.getElementById('user-website').value;
+
+            if (!name || !email || !phone || !website) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (editingUserId) {
+                const usersList = document.getElementById('users-list').getElementsByTagName('tbody')[0];
+                const rows = usersList.getElementsByTagName('tr');
+                for (const row of rows) {
+                const userId = row.getAttribute('data-id');
+                if (userId == editingUserId) {
+                    row.cells[0].textContent = name;
+                    row.cells[1].textContent = email;
+                    row.cells[2].textContent = phone;
+                    row.cells[3].innerHTML = `<a href="http://${website}" target="_blank">${website}</a>`;
+                    break;
+                }
+                }
+                editingUserId = null;
+            } else {
+                const newUser = {
+                id: Date.now(),
+                name: name,
+                email: email,
+                phone: phone,
+                website: website
+                };
+
+                const usersList = document.getElementById('users-list').getElementsByTagName('tbody')[0];
+                const row = document.createElement('tr');
+                row.setAttribute('data-id', newUser.id);
+                row.innerHTML = `
+                <td>${newUser.name}</td>
+                <td>${newUser.email}</td>
+                <td>${newUser.phone}</td>
+                <td><a href="http://${newUser.website}" target="_blank">${newUser.website}</a></td>
+                <td class="action-btns">
+                    <button class="edit-btn" onclick="editUser(${newUser.id}, '${newUser.name}', '${newUser.email}', '${newUser.phone}', '${newUser.website}')">Edit</button>
+                    <button class="delete-btn" onclick="deleteUser(${newUser.id})">Delete</button>
+                </td>
+                `;
+                usersList.appendChild(row);
+            }
+
+            document.getElementById('user-name').value = '';
+            document.getElementById('user-email').value = '';
+            document.getElementById('user-phone').value = '';
+            document.getElementById('user-website').value = '';
+        }
+
+        // Function to Edit User
+        function editUser(id, name, email, phone, website) {
+            document.getElementById('user-name').value = name;
+            document.getElementById('user-email').value = email;
+            document.getElementById('user-phone').value = phone;
+            document.getElementById('user-website').value = website;
+
+            editingUserId = id;
+        }
+
+        // Function to Delete User
+        function deleteUser(id) {
+            const usersList = document.getElementById('users-list').getElementsByTagName('tbody')[0];
+            const rows = usersList.getElementsByTagName('tr');
+            for (const row of rows) {
+                const userId = row.getAttribute('data-id');
+                if (userId == id) {
+                usersList.removeChild(row);
+                break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

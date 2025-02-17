@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .stage {
+            background: rgb(189, 189, 189);
+            border-radius: 6px;
+            height: 150px;
+            position: relative;
+            min-width: 540px;
+        }
+        @keyframes slide {
+            0%{
+                left: 0;
+                top: 0;
+            }
+            50% {
+                left: 244px;
+                top: 100px;
+            }
+            100% {
+                left: 488px;
+                top: 0;
+            }
+        }
+        .stage:hover .ball {
+            animation: slide 2s linear infinite;
+        }
+        .ball {
+            background: rgb(3, 100, 3);
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <figure class="ball"></figure>
+    </div>
+</body>
+</html>

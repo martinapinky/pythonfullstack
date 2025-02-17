@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <p id="demo">Hello, World!</p>
+  <button id="changeText">Change Text</button>
+  <script>
+    $(document).ready(function() {
+        $('#changeText').click(function() {
+            $('#demo').text('New Text!');
+        });
+
+    // Toggle visibility
+    // $('#demo').toggle();
+
+    // $(“mydiv”).html(“<p> this is a paragraph</p>”);
+    // $(“mydiv”).addClass(“active”);
+    // $(“mydiv”).toggleClass(“active”, "inactive");
+
+    // $("#myButton").click(function(){
+    // alert("Button clicked!");
+    // });
+
+    // $("#myDiv").hover(
+    // function() { $(this).css("background-color", "yellow"); },
+    // function() { $(this).css("background-color", ""); }
+    // );
+
+    // AJAX 
+
+    $.ajax({
+        url: "myfile.php",
+        type: "GET",
+        success: function(response) {
+            $("#result").html(response);
+        }
+    });
+
+    // Animations
+    $("#myDiv").fadeIn(1000); // Fade in over 1 second
+
+    });
+  </script>
+</body>
+</html>

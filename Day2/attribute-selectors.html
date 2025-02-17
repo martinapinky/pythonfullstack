@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selectors</title>
+    <style>
+        /* Universal Selector */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* Attribute Selector */
+        p[class] {
+            color: red;
+        }
+        /* Attribute Selector with Specific Value */
+        p[class="para"] {
+            color: blue;
+        }
+        p[class="imp"] {
+            color: green;
+        }
+        input[type="text"] {
+            width: 50px;
+            display: block;
+            margin-bottom: 10px;
+            background-color: yellow;
+        }
+
+        input[type="button"] {
+            width: 120px;
+            margin-left: 35px;
+            display: block;
+        }
+
+        input[type="email"] {
+            width: 200px;
+            margin-left: 35px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        div {
+            background-color: lightblue;
+            padding: 10px;
+        }
+        /* Attribute Selector containing Specific Value */
+        div[class~="para"] {
+            background-color: lightgreen;
+        }
+        /* Attribute Selector starting with Specific Value */
+        input[type^="t"] {
+            background-color: lightcoral;
+        }
+        /* Attribute Selector ending with Specific Value */
+        input[type$="r"] {
+            background-color: navajowhite;
+        }
+        /* Attribute Selector containing substring Value */
+        input[type*="ton"] {
+            background-color: mediumslateblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attribute Selectors</h1>
+    <div>
+        <p>First Paragraph</p>
+        <p>Second Paragraph</p>
+        <p>Third Paragraph</p>
+
+        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, temporibus omnis minus laboriosam aut aliquam molestiae, eligendi ullam nulla nam iusto culpa in ipsa vitae distinctio, ad animi incidunt eius?</p>
+    </div>
+    <form name="input" action="" method="get">
+        Firstname:<input type="text" name="Name" value="Peter" size="20">
+        Lastname:<input type="text" name="Name" value="Griffin" size="20">
+        Email:<input type="email" name="Name" value="malinda@bou.or.ug" size="20">
+        <input type="button" value="Example Button">
+      </form>
+    </body>
+</html>

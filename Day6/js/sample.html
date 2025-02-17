@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+</head>
+<body>
+    <h1>Hello <span id="output"></span></h1>
+    <script>
+        // console.log("Hello");
+        // debugger;
+        // alert("hello");
+
+        const yourname = prompt("Your name:", "") || "Stranger";
+        // console.log(yourname);
+        const output = document.getElementById('output');
+        output.textContent = yourname;
+
+
+    </script>
+</body>
+</html>

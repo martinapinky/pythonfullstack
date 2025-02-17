@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stage {
+            border-radius: 6px;
+            height: 250px;
+            width: 50px;
+            position: relative;
+            margin: 20px;
+        }
+        @keyframes slide {
+            0%, 100%{
+                left: 0;
+                top: 0;
+            }
+            50% {
+                left: 0;
+                top: 200px;
+            }
+        }
+        .ball {
+            background: coral;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: 0;
+            animation: slide 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stage">
+            <figure class="ball"></figure>
+        </div>
+    </div>
+</body>
+</html>

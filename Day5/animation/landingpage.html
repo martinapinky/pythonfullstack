@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, rgb(199, 255, 250), rgb(243, 215, 255)) no-repeat;
+            height: 100vh;
+            line-height: 1.5;
+        }
+        header {
+            background: linear-gradient(to right, rgb(170, 0, 255), rgb(65, 122, 255));
+            color: white;
+            text-align: center;
+            padding: 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            animation: fadeIn 2s ease-in-out
+        }
+        header h1 {
+            font-size: 30px;
+        }
+        header p {
+            font-size: 15px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .cards {
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2 rem;
+        }
+        .card {
+            background: white;
+            padding: 2 rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.5s, box-shadow 0.5s;
+            transform-origin: center;
+        }
+        .card:hover {
+            cursor: pointer;
+            transform: rotateY(360deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 10px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 10px;
+            background-color: #6a11cb;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.4s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: rgb(65, 122, 255);
+            transform: scale(1.2);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 3rem;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+            font-size: small;
+            animation: slideUp 2s ease-in-out;
+            margin-bottom: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Modern Website</h1>
+        <p>Experience a sleek and dynamic design with CSS animations</p>
+    </header>
+    <section>
+        <h2>Our Features</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Feature 1</h3>
+                <p>Engaging animations and clean layout for an exceptional user experience</p>
+            </div>
+            <div class="card">
+                <h3>Feature 2</h3>
+                <p>Engaging animations and clean layout for an exceptional user experience</p>
+            </div>
+            <div class="card">
+                <h3>Feature 3</h3>
+                <p>Engaging animations and clean layout for an exceptional user experience</p>
+            </div>
+        </div>
+        <a href="#" class="btn">Learn More</a>
+    </section>
+    <footer>
+        <p>&copy; 2025 Modern Website. Designed with passion and precision</p>
+    </footer>
+</body>
+</html>

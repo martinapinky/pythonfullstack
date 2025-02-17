@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(120deg, #f6d365, #fda085);
+    }
+
+
+    h1 {
+      animation: fadeIn 2s ease-in-out;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+
+    .box-container {
+      display: flex;
+      gap: 20px;
+    }
+
+
+    .box {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+
+    /* Animations for individual boxes */
+    .fade-box {
+      background-color: #6c5ce7;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+    }
+
+
+    .slide-box {
+      background-color: #00cec9;
+      animation: slideUp 1.5s ease-in infinite alternate;
+    }
+
+
+    .rotate-box {
+      background-color: #e17055;
+      animation: rotate 3s linear infinite;
+    }
+
+
+    .scale-box {
+      background-color: #fdcb6e;
+      animation: scaleUp 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes fadeIn{
+        from{
+           opacity: 0;
+        }
+        to{
+            opacity:1;
+        }
+    }
+
+
+    @keyframes slideUp{
+        from{
+            transform: translateY(50px)
+        }
+        to{
+            transform: translateY(0px)
+        }
+    }
+     @keyframes rotate{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+     }
+     @keyframes scaleUp{
+        from{
+            transform: scale(1);
+        }
+        to{
+            transform: scale(1.5);
+        }
+     }
+    </style>
+</head>
+<body>
+    <h1>CSS Animation Practice</h1>
+    <div class="box-container">
+      <div class="box fade-box">Fade</div>
+      <div class="box slide-box">Slide</div>
+      <div class="box rotate-box">Rotate</div>
+      <div class="box scale-box">Scale</div>
+    </div>  
+</body>
+</html>

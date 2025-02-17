@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon-Like Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+            font-family: "Montserrat", serif;
+            font-size: 0.8em;
+        }
+        .header {
+            background-color: #232f3e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff9900;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            width: 80%;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+        }
+        .product-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .product {
+            background-color: white;
+            margin: 15px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .product button {
+            background-color: #ff9900;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .cart {
+            margin-top: 30px;
+            display: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-top: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">ShopNow</div>
+        <!-- <div class="search-container">
+            <input type="text" placeholder="Search for products..." />
+            <button>Search</button>
+        </div> -->
+        <div class="search-container">
+            <input type="text" placeholder="Search for products">
+            <i class="bi bi-search"></i>
+        </div>
+        <button class="cart-btn" onclick="toggleCart()">
+            <span class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
+            View Cart 
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+    </header>
+    <section id="products">
+        <div class="product-container">
+            <div class="product" id="product-1">
+                <img src="https://cdn.pixabay.com/photo/2012/11/07/02/07/jugs-64975_640.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <button onclick="addToCart('Product 1', 'https://cdn.pixabay.com/photo/2012/11/07/02/07/jugs-64975_640.jpg')">Add to Cart</button>
+            </div>
+            <!-- Add more products as needed -->
+        </div>
+    </section>
+    <section id="cartSection">
+        <div id="cart" class="cart">
+            <h2>My Cart</h2>
+            <!-- Dynamically added cart items will appear here -->
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+    <script>
+        let cartItems = {};
+
+        // Function to add items to cart
+        function addToCart(product, imageUrl) {
+            if(cartItems[product]) {
+                cartItems[product].quantity++;
+            } else {
+                cartItems[product] = { name: product, quantity: 1, imageUrl: imageUrl };
+            }
+            updateCart();
+            updateCartButton();
+        }
+
+        // Function to remove items from cart
+        function removeFromCart(product) {
+            if (cartItems[product]) {
+                cartItems[product].quantity--;
+
+                if (cartItems[product].quantity === 0)
+                delete cartItems[product];
+            }
+            updateCart();
+            updateCartButton();
+        }
+
+        // Function to update the cart section dynamically
+        function updateCart() {
+            const cart =  document.getElementById('cart');
+            cart.innerHTML = '';
+
+            for(const product in cartItems) {
+                const cartItem = cartItems[product];
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.id = `cart-item-${cartItem.name}`;
+                cartItemDiv.innerHTML = `
+                    <h3>${cartItem.name}</h3>
+                    <img src="${cartItem.imageUrl}" alt="${cartItem.name}" style="width: 100px, height: 100px;
+                    object-fit: cover; border-radius: 8px; margin: 10px auto;">
+                    <p>Quantity: ${cartItem.quantity}</p>
+                    <button onclick="removeFromCart('${cartItem.name}')">Remove</button>
+                `;
+                cart.appendChild(cartItemDiv);
+            }
+
+            if (Object.keys(cartItems).length === 0) {
+                cart.style.display = 'none';
+            } else {
+                cart.style.display = 'flex';
+            }
+        }
+
+        // Function to update the cart button to display the total number of items
+        function updateCartButton() {
+            const cartCount = document.getElementById('cart-count');
+            const totalItems = Object.values(cartItems)
+                .reduce((acc, item) => acc + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Function to show or hide cart
+        function toggleCart() {
+            const cart = document.getElementById('cart');
+            if (cart.style.display === 'none' || cart.style.display === '') {
+                cart.style.display = 'flex';
+            } else {
+                cart.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

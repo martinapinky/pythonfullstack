@@ -1,0 +1,38 @@
+2025-02-02 12:42:44,241,INFO,Watching for file changes with StatReloader
+2025-02-02 12:43:01,415,INFO,E:\Work\Training\Python Full Stack\PythonDjango\companyapi\settings.py changed, reloading.
+2025-02-02 12:43:02,025,INFO,Watching for file changes with StatReloader
+2025-02-02 12:44:27,360,INFO,E:\Work\Training\Python Full Stack\PythonDjango\employee_api\views.py changed, reloading.
+2025-02-02 12:44:27,991,INFO,Watching for file changes with StatReloader
+2025-02-02 12:44:30,427,INFO,E:\Work\Training\Python Full Stack\PythonDjango\employee_api\views.py changed, reloading.
+2025-02-02 12:44:31,014,INFO,Watching for file changes with StatReloader
+2025-02-02 12:44:38,703,INFO,E:\Work\Training\Python Full Stack\PythonDjango\employee_api\views.py changed, reloading.
+2025-02-02 12:44:39,332,INFO,Watching for file changes with StatReloader
+2025-02-02 12:46:17,195,INFO,E:\Work\Training\Python Full Stack\PythonDjango\companyapi\settings.py changed, reloading.
+2025-02-02 12:46:17,889,INFO,Watching for file changes with StatReloader
+2025-02-02 12:47:37,785,WARNING,Not Found: /
+2025-02-02 12:47:37,786,WARNING,"GET / HTTP/1.1" 404 2308
+2025-02-02 12:47:43,727,INFO,"GET /api/employees/ HTTP/1.1" 200 9566
+2025-02-02 12:47:43,772,INFO,"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+2025-02-02 12:47:43,773,INFO,"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+2025-02-02 12:47:43,775,INFO,"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+2025-02-02 12:47:43,777,INFO,"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+2025-02-02 12:47:43,781,INFO,"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,784,INFO,"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,784,INFO,"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,787,INFO,"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,792,INFO,"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,792,INFO,"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,794,INFO,"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+2025-02-02 12:47:43,811,INFO,"GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+2025-02-02 12:49:55,256,INFO,E:\Work\Training\Python Full Stack\PythonDjango\employee_api\views.py changed, reloading.
+2025-02-02 12:49:55,913,INFO,Watching for file changes with StatReloader
+2025-02-02 12:50:00,774,INFO,"GET /api/employees/ HTTP/1.1" 200 9566
+2025-02-02 12:50:25,192,WARNING,Bad Request: /api/employees/
+2025-02-02 12:50:25,194,WARNING,"POST /api/employees/ HTTP/1.1" 400 9790
+2025-02-02 12:50:36,179,INFO,"POST /api/employees/ HTTP/1.1" 201 9829
+2025-02-02 12:55:01,689,WARNING,Not Found: /api/employees/1
+2025-02-02 12:55:01,690,WARNING,"GET /api/employees/1 HTTP/1.1" 404 2784
+2025-02-02 12:55:20,464,INFO,"GET /api/employee/1 HTTP/1.1" 200 10985
+2025-02-02 12:56:02,265,INFO,"DELETE /api/employee/1 HTTP/1.1" 204 0
+2025-02-02 12:56:09,259,WARNING,Not Found: /api/employee/1
+2025-02-02 12:56:09,260,WARNING,"GET /api/employee/1 HTTP/1.1" 404 10747

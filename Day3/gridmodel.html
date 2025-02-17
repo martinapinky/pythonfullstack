@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Model</title>
+    <style>
+        .body {
+            margin: 0px;
+            padding: 0px;
+        }
+        .container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 50px 1fr 50px;
+            grid-template-areas: 
+            "header header header"
+            "aside main main"
+            "footer footer footer";
+            background-image: url("https://cdn.pixabay.com/photo/2025/01/03/00/02/ai-generated-9306969_1280.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .header {
+            grid-area: header;
+            background-color: black;
+            color: white;
+        }
+        .aside {
+            grid-area: aside;
+            border: 1px solid black;
+        }
+        .main {
+            grid-area: main;
+            border: 1px solid black;
+        }
+        .footer {
+            grid-area: footer;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            padding: 10px;
+        }
+        .navbar {
+            display: block;
+        }
+        .navbar li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam explicabo incidunt nam labore quia totam alias eligendi libero debitis pariatur ipsum reprehenderit, veniam adipisci repellat eum placeat, illo autem qui.
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quas recusandae. Iusto, libero, incidunt dicta aut hic voluptate pariatur veritatis voluptas neque nobis itaque obcaecati possimus, dolores harum corporis aperiam!</p>
+        </div>
+        <div class="aside">
+            <ul>
+                <li>Link 1</li>
+                <li>Link 2</li>
+                <li>Link 3</li>
+                <li>Link 4</li>
+                <li>Link 5</li>
+            </ul>
+        </div>
+        <div class="footer">
+            &copy; This is copyright
+        </div>
+    </div>
+</body>
+</html>

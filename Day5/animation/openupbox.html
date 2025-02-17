@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Up Box</title>
+<style>
+            html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+
+        div#main {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin: auto;
+            cursor: pointer;
+        }
+
+
+        div#main .content {
+            position: absolute;
+            text-align: center;
+            width: 200px;
+            top: 50%;
+            transform: translate(0, -50%);
+            font-size: 24pt;
+            z-index: 10;
+        }
+       
+        div#main .topleft,
+        div#main .topright,
+        div#main .bottomleft,
+        div#main .bottomright {
+            display: inline-block;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, left 0.5s ease-in-out;
+        }
+        div#main .topleft{
+    top:0;
+    left:0px;
+    background-color: red;
+    transform-origin: bottom right;
+}
+
+
+div#main .topright{
+    top:0;
+    left:100px;
+    background-color: rgb(201, 255, 75);
+    transform-origin: bottom left;
+}
+div#main .bottomleft{
+    top:100px;
+    left:0px;
+    background-color: rgb(22, 6, 247);
+    transform-origin: top right;
+}
+
+
+div#main .bottomright{
+    top:100px;
+    left:100px;
+    background-color: rgb(0, 255, 149);
+    transform-origin: top left;
+}
+
+
+div#main:hover .topleft{
+    transform: rotate(90deg);
+    top: -50px;
+    left: -50px;
+}
+
+
+div#main:hover .topright{
+    transform: rotate(90deg);
+    top: -50px;
+    left: 150px;
+}
+
+
+div#main:hover .bottomleft{
+    transform: rotate(90deg);
+    top: 150px;
+    left: -50px;
+}
+
+
+div#main:hover .bottomright{
+    transform: rotate(90deg);
+    top: 150px;
+    left: 150px;
+}
+</style>
+
+
+</head>
+<body>
+    <div id ="main">
+        <div class="content">Hi</div>
+        <div class="topleft"></div>
+        <div class="topright"></div>
+        <div class="bottomleft"></div>
+        <div class="bottomright"></div>
+    </div>
+</body>
+</html>

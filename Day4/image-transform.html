@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            /* overflow: hidden; */
+            border: none;
+            border-radius: 20px;
+        }
+        div img {
+            width: 100%;
+            height: 100%;
+            /* object-fit: contain; */
+            opacity: 0.8;
+            filter: blur(1px);
+            border-radius: 20px;
+            /* transition: transform 0.1s ease-in; */
+            transition: transform 0.3s ease-in-out;
+        }
+        div img:hover {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            opacity: 1;
+            cursor: pointer;
+            filter:none;
+            /* transform: translateY(10px) scale(1.2); */
+            transform: translate(30px, 25px) scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="https://cdn.pixabay.com/photo/2024/12/28/03/39/vietnam-9295186_1280.jpg" alt="Vietnam">
+    </div>
+</body>
+</html>

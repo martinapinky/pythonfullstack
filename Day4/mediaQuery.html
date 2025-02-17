@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query Example</title>
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: lightgray;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                background-color: lightblue;
+            }
+        } */
+        .box {
+            background-color: rgb(118, 118, 252);
+            height: 100vh;
+        }
+        
+        /* Tablet View */
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .box {
+                background-color: rgb(185, 105, 168);
+            }
+        }
+
+        /* Mobile Phone */
+        @media (max-width:767px) {
+            .box {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+        <h1>Responsive Design with Media Queries</h1>
+        <p>This container changes its background color based on the screen width.</p>
+    </div> -->
+    <div class="box">
+        <h1>I am a responsive site</h1>
+    </div>
+</body>
+</html>

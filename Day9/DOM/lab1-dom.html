@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Assignment</title>
+    <style>
+        .active {
+            background-color: green;
+        }
+        .inactive {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <h1>JavaScript DOM Manipulation Assignment Questions</h1>
+        <p id="demo">Paragraph with Text</p>
+        <button id="changeParaBtn" onclick="changeParaTxt()">Change Paragraph Text</button>
+        <ul id="myList"></ul>
+        <button id="addItem" onclick="AddNewItem()">Add Item to List</button>
+        <div id="myDiv" style="height: 100px; background-color: azure;"></div>
+        <button id="removeDiv" onclick="removeDiv()">Remove Div Above</button>
+        <p id="toggleParagraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum esse ducimus ratione quis tenetur cum voluptatibus animi, ab qui ipsam maiores quod dolor, atque quam, eligendi illum sunt? Dolor, quia.</p>
+        <button onclick="toggleVisibility()">Toggle Paragraph</button>
+        <div id="colorDiv" style="height: 50px;">
+            <button onclick="changeDivColor()">Change Div Background Color</button>
+        </div>
+        <input type="text" id="username" placeholder="Username" style="outline: none;">
+        <button onclick="greetUser()">Submit</button>
+        <p id="greetingMessage"></p>
+        <div id="container" style="height:50px;">Empty div</div>
+        <button onclick="changeInnerHTML()">Change InnerHTML</button>
+        <button onclick="changeOuterHTML()">Change OuterHTML</button>
+        <div>
+            <button id="toggleButton" class="active" onclick="toggleClass()">Toggle Class</button>
+        </div>
+    </div>
+    <script>
+        // Change Text Content: You have a paragraph element with an ID demo. Create a 
+        //     function that changes the text inside this paragraph when a button is clicked. 
+        //     What will you do to update the text inside the paragraph?
+        const demo = document.getElementById('demo');
+        function changeParaTxt() {
+            demo.textContent = "Paragraph text changed";
+        }
+
+        // Add a New Item to a List: Create a function to add a new list item to an unordered 
+        // list with the ID myList. The new item should be called "New Item". How do you append 
+        // the new list item to the list?
+        const myList = document.getElementById('myList');
+        function AddNewItem() {
+            const newItem = document.createElement("li");
+            newItem.textContent = "New Item";
+            myList.appendChild(newItem);
+        }
+
+        // Remove an Element: You have a div element with the ID myDiv. Write a function that 
+        // removes this div element when a button is clicked.
+        function removeDiv(){
+            document.getElementById('myDiv').remove();
+        }
+
+        // Toggle Visibility of an Element: Write a function to toggle the visibility of a 
+        // paragraph element with the ID toggleParagraph. The paragraph should hide or show 
+        // when a button is clicked.
+        const para = document.getElementById('toggleParagraph');
+        function toggleVisibility() {
+            if (para.style.display === "none") {
+                para.style.display = "block";
+            } else {
+                para.style.display = "none";
+            }
+        }
+
+        // Change the Background Color of a Div: Create a function that changes the background 
+        // color of a div element with the ID colorDiv to "orange" when a button is clicked.
+        function changeDivColor() {
+            document.getElementById('colorDiv').style.backgroundColor = 'orange';
+        }
+
+        // Greet the User Based on Input: You have an input field where a user can enter their 
+        // name (ID username). Create a function that reads the user's name and displays a 
+        // greeting message below the input field.
+        function greetUser() {
+            const name = document.getElementById("username").value;
+            const greetingMessage = document.getElementById("greetingMessage");
+            greetingMessage.textContent = `Hello, ${name}! Welcome to our website.`;
+        }
+
+        // Change InnerHTML of an Element: You have a div element with the ID container. Write 
+        // a function that changes its innerHTML to display a new paragraph saying "This is 
+        // a modified paragraph."
+        function changeInnerHTML(){
+            document.getElementById('container').innerHTML = "<p>This is a modified paragraph<p>";
+        }
+    
+        // Change OuterHTML of an Element: You have a div element with the ID container. Create 
+        // a function that changes the outerHTML to replace the div with a section containing a 
+        // new heading and paragraph.
+        function changeOuterHTML() {
+            document.getElementById('container').outerHTML = "<section id='container'><h1>Heading</h1><p>Paragraph</p></section>";
+        }
+
+        // Toggle Between Two Classes: You have a button element with the ID toggleButton and 
+        // two classes: active and inactive. Write a function that toggles between these two
+        // classes when the button is clicked.
+        function toggleClass() {
+            const button = document.getElementById('toggleButton');
+            button.classList.toggle("active");
+            button.classList.toggle("inactive");
+        }
+
+        // Scroll Event Handler: Log "Scrolling..." to the console whenever the user scrolls 
+        // the page.
+        window.addEventListener('scroll', () => {
+            console.log('Scrolling...');
+        });
+
+        // Add an event listener for resize event
+        window.addEventListener('resize', () => {
+            console.log(`Width: ${window.innerWidth}, Height: ${window.innerHeight}`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits & Flowers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        body {
+          background-color: #eeeeee;
+        }
+        .hero {
+            background-color: #32201E;
+            color: white;
+            height: 100vh;
+        }
+        .hero-img {
+                display: block;
+                width: 45%;
+        }
+        .orange-bg {
+            background-color: #ffac6e;
+            clip-path: polygon(0 0, 55% 0, 80% 100%, 0 100%);
+        }
+        .learn-more .btn {
+            box-shadow: 0.3rem 0.3rem 0.6rem #d7925d, -.2rem -.2rem .5rem #ffc293;
+            outline: none;
+            color: #9d6b44;
+        }
+        .learn-more .btn:active {
+            box-shadow: inset .2rem .2rem .5rem #d7925d, inset -.2rem -.2rem .5rem #ffc293;
+            color: #32201E;
+        }
+        .learn-more .btn:focus {
+            box-shadow: inset .2rem .2rem .5rem #d7925d, inset -.2rem -.2rem .5rem #ffc293;
+            color: #32201E;
+        }
+        .learn-more .btn:hover {
+            color: #32201E;
+        }
+        .card {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: 0.3rem 0.3rem 0.6rem #e3e3e3, -.2rem -.2rem .5rem #ffffff;
+        }
+        .card .btn {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: 0.3rem 0.3rem 0.6rem #e3e3e3, -.2rem -.2rem .5rem #ffffff;
+          color: grey;
+        }
+        .card .btn:active {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          color: grey;
+        }
+        .card .btn:focus {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          color: grey;
+        }
+        .card .btn:hover {
+          color: black;
+        }
+        .card-contents {
+          border-radius: .25rem;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+        }
+        input[type="text"] {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          outline: none;
+        }
+        input[type="text"]:focus {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: 0.3rem 0.3rem 0.6rem #e3e3e3,  -.2rem -.2rem .5rem #ffffff;
+        }
+        input[type="email"] {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          outline: none;
+        }
+        input[type="email"]:focus {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: 0.3rem 0.3rem 0.6rem #e3e3e3,  -.2rem -.2rem .5rem #ffffff;
+        }
+        textarea.form-control {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          outline: none;
+        }
+        textarea.form-control:focus {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: 0.3rem 0.3rem 0.6rem #e3e3e3,  -.2rem -.2rem .5rem #ffffff;
+        }
+        .submit-btn .btn {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: 0.3rem 0.3rem 0.6rem #e3e3e3, -.2rem -.2rem .5rem #ffffff;
+          color: grey;
+          margin-top: 30px;
+        }
+        .submit-btn .btn:active {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          color: grey;
+        }
+        .submit-btn .btn:focus {
+          border: none;
+          background-color: #eeeeee;
+          box-shadow: inset 0.3rem 0.3rem 0.6rem #e3e3e3, inset -.2rem -.2rem .5rem #ffffff;
+          color: grey;
+        }
+        .submit-btn .btn:hover {
+          color: black;
+        }
+        footer {
+            background-color: #32201E;
+            color: white;
+        }
+        @media (min-width: 768px) and (max-width: 992px) {
+            .orange-bg {
+                clip-path: polygon(0 0, 70% 0, 90% 100%, 0 100%);
+            }
+            .hero-img {
+                display: block;
+                width: 40%;
+            }
+        }
+        @media (max-width: 767px) {
+            .orange-bg {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            .hero {
+                height: auto;
+            }
+            .hero-img {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="https://cdn.pixabay.com/photo/2016/03/03/17/15/fruit-1234657_1280.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+            Fruits & Flowers
+          </a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <section class="hero position-relative">
+        <div class="container-fluid p-0 h-100">
+            <div class="orange-bg row mx-0 container-fluid p-0 h-100" >
+                <div class="container col-lg-4 col-md-4 col-sm-8 d-flex flex-column justify-content-center py-5 text-center gap-3 h-100">
+                    <h1>Welcome to the Fruits & Flowers Website</h1>
+                    <p>Discover a wide variety of fresh fruits and beautiful flowers at our fictional Fruits & Flowers website. We offer the best quality products to brighten your day and nourish your body.</p>
+                    <div class="learn-more">
+                        <a href="#about" type="button" class="btn btn-custom rounded-pill px-5">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-2 col-sm-1"></div>
+            </div>
+        </div>
+        <div class="position-absolute bottom-0 end-0 hero-img">
+            <img class="img-fluid" src="https://cdn.pixabay.com/photo/2016/04/22/14/40/png-1345901_1280.png">
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h3 class="text-center my-5">About Us</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 d-flex justify-content-center">
+                    <div class="card mb-4" style="width: 18rem;">
+                      <div class="card-contents p-2 m-1">
+                        <img src="https://cdn.pixabay.com/photo/2015/08/25/03/50/basil-906137_640.jpg" class="card-img-top p-2" alt="Service 1">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8 d-flex justify-content-center">
+                    <div class="card mb-4" style="width: 18rem;">
+                      <div class="card-contents p-2 m-1">
+                        <img src="https://cdn.pixabay.com/photo/2015/08/25/03/50/basil-906137_640.jpg" class="card-img-top p-2" alt="Service 1">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8 d-flex justify-content-center">
+                    <div class="card mb-4" style="width: 18rem;">
+                      <div class="card-contents p-2 m-1">
+                        <img src="https://cdn.pixabay.com/photo/2015/08/25/03/50/basil-906137_640.jpg" class="card-img-top p-2" alt="Service 1">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+              <div class="col-lg-12">
+                <h3 class="my-4 text-center">Contact Us</h3>
+                <form>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="name" class="form-label">Your Name</label>
+                      <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="surname" class="form-label">Your Surname</label>
+                      <input type="text" class="form-control" id="surname" name="surname" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="email" class="form-label">Your Email</label>
+                      <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="subject" class="form-label">Your Subject</label>
+                      <input type="text" class="form-control" id="subject" name="subject">
+                    </div>
+                    <div class="col-12">
+                      <label for="message" class="form-label">Your Message</label>
+                      <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-md-6 submit-btn">
+                          <button type="submit" class="btn btn-primary w-100 fw-bold" >Send</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+    </section>
+    <footer>
+    <div class="container text-center py-2">
+        <p class="small mb-0">&copy; 2025 Fruits & Flowers. All rights reserved</p>
+    </div>
+    </footer>
+</body>
+</html>

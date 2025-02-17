@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register for a Race</h1>
+    <form action="register.php" method="post">
+        <h2>Select Races</h2>
+        <input type="checkbox" id="race1" name="race1" value="Bike">
+        <label for="race1"> AJC Peachtree Road</label><br>
+        <input type="checkbox" id="race2" name="race2" value="Car">
+        <label for="race2"> Boilermaker</label><br>
+        <input type="checkbox" id="race3" name="race3" value="Boat">
+        <label for="race3"> NYC Marathon</label><br>
+
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </p>
+        <p>
+            <input id="fileupload" hidden type="file">
+            <label for="fileupload" name="Upload your file">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkdZ385c824C0nEyOF4Khbm4380CmxSCFiKA&s" width="100" alt="Random Image">
+            </label>
+        </p>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

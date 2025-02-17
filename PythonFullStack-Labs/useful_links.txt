@@ -1,0 +1,12 @@
+DomainName  https://blog.bytebytego.com/p/a-crash-course-in-dns-domain-name
+HTMLEntities    https://www.w3schools.com/html/html_entities.asp
+Notes   https://docs.google.com/document/d/1bTVW-JNa_g4UyO9HqPh85O6Eo7HVUVujsLIFcwckzXs/edit?usp=sharing
+AttributeSelectors https://www.w3schools.com/css/css_attribute_selectors.asp
+GoogleFonts https://fonts.google.com/
+CSSUnits    https://www.w3schools.com/cssref/css_units.php
+Flexbox https://www.w3schools.com/css/css3_flexbox_container.asp
+LineHeight  https://www.w3schools.com/cssref/tryit.php?filename=trycss_line-height
+ClipPath    https://www.w3schools.com/cssref/tryit.php?filename=trycss_func_polygon
+CubicBeziar https://www.w3schools.com/cssref/tryit.php?filename=trycss_func_cubic-bezier2
+CanIUse https://caniuse.com/css-grid
+CompatibilityTable https://compat-table.github.io/compat-table/es6/

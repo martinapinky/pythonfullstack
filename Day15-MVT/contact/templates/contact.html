@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Contact Page
+{% endblock %}
+
+{% block body %}
+    <section class="contact-container">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Renders the form fields in paragraphs -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

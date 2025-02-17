@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <style>
+        /* Universal Selector */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* Descendant Selector/Combinator */
+        div p {
+            color: red;
+        }
+        /* Child Selector/Combinator */
+        div p > a{
+            color: blue;
+        }
+        /* Adjacent Sibling Selector/Next Sibling Combinator */
+        h1 + p {
+            color: green;
+        }
+        /* General Sibling Selector/Subsequent Sibling Combinator */
+        h1 ~ p {
+            color: purple;
+        }
+        h1:hover {
+            color: yellow;
+            cursor: pointer;
+        }
+        h1::first-letter {
+            color: red;
+            font-size: larger;
+        }
+        h1::before {
+            content: url("https://cdn.pixabay.com/photo/2020/09/20/16/50/big-buddha-5587706_1280.jpg");
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>First Paragraph <a> Test</a></p>
+        <p>Second Paragraph</p>
+        <p>Third Paragraph</p>
+    </div>
+    <h1 id="mainheading">This is the CSS Tutorial</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis impedit dolore animi qui consequuntur ullam natus consectetur perspiciatis neque recusandae excepturi voluptatem officiis, quasi quibusdam corporis id deleniti voluptates? Quis.</p>
+    <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, temporibus omnis minus laboriosam aut aliquam molestiae, eligendi ullam nulla nam iusto culpa in ipsa vitae distinctio, ad animi incidunt eius?</p>
+    <p class="imp">Key Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, temporibus omnis minus laboriosam aut aliquam molestiae, eligendi ullam nulla nam iusto culpa in ipsa vitae distinctio, ad animi incidunt eius?</p>
+    <h2 id="heading2">This is the CSS Tutorial</h1>
+    <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, temporibus omnis minus laboriosam aut aliquam molestiae, eligendi ullam nulla nam iusto culpa in ipsa vitae distinctio, ad animi incidunt eius?</p>
+    <p class="imp">Key Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, temporibus omnis minus laboriosam aut aliquam molestiae, eligendi ullam nulla nam iusto culpa in ipsa vitae distinctio, ad animi incidunt eius?</p>
+    <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, temporibus omnis minus laboriosam aut aliquam molestiae, eligendi ullam nulla nam iusto culpa in ipsa vitae distinctio, ad animi incidunt eius?</p>
+</body>
+</html>
